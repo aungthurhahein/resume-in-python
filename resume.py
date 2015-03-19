@@ -38,6 +38,7 @@ education = {
     'bachelor': ucsy,
     'master': mahidol
 }
+
 # Skills
 tech_skill = {
     'programming languages': 'CFML, Python, C#, Bash',
@@ -57,7 +58,26 @@ skill = {
 }
 
 # Experience
-
+web_developer = {
+    'company' : "Inforithm Maze Co.Ltd",
+    'location': 'Yangon, MM'
+    'Position' : "Web Developer",
+    'start': "December 2010",
+    'end' : 'June 2010',
+    'Description': "Implementing, designing and maintaining mid-size & largescale web applications."\
+                    "Design database & friendly user interface for theprojects."
+}
+Bioinformatician = {
+    'company': "CentexShrmip, Mahidol University",
+    'Location': "Bangkok, TH",
+    'Position': "Bioinformatics research assistant",
+    'start': "February 2013",
+    'end': "Current",
+    'Description': " Data analyzing, Data processing, Project development & Server administration. Implementing"\
+                   " DNA assembly pipelines and programs to achieve particular project goalsData analyzing, Data processing,"\
+                    " Project development & Server administration. Implementing DNA assembly pipelines and programs to achieve particular"\
+                   " project goals.."
+}
 
 def parse_command_line():
     parser = argparse.ArgumentParser('Terminal Resume Viewer')
