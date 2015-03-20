@@ -59,13 +59,13 @@ skill = {
 
 # Experience
 web_developer = {
-    'company' : "Inforithm Maze Co.Ltd",
-    'location': 'Yangon, MM'
-    'Position' : "Web Developer",
+    'company': "Inforithm Maze Co.Ltd",
+    'location': 'Yangon, MM',
+    'Position': "Web Developer",
     'start': "December 2010",
-    'end' : 'June 2010',
-    'Description': "Implementing, designing and maintaining mid-size & largescale web applications."\
-                    "Design database & friendly user interface for theprojects."
+    'end': "June 2010",
+    'Description': "Implementing, designing and maintaining mid-size & largescale web applications." \
+                   "Design database & friendly user interface for theprojects."
 }
 Bioinformatician = {
     'company': "CentexShrmip, Mahidol University",
@@ -75,8 +75,12 @@ Bioinformatician = {
     'end': "Current",
     'Description': " Data analyzing, Data processing, Project development & Server administration. Implementing"\
                    " DNA assembly pipelines and programs to achieve particular project goalsData analyzing, Data processing,"\
-                    " Project development & Server administration. Implementing DNA assembly pipelines and programs to achieve particular"\
+                   " Project development & Server administration. Implementing DNA assembly pipelines and programs to achieve particular"\
                    " project goals.."
+}
+xp = {
+    '2008-2012': web_developer,
+    '2013-Current': Bioinformatician
 }
 
 def parse_command_line():
@@ -89,6 +93,10 @@ def parse_command_line():
     args_pass = parser.parse_args()
     return args_pass
 
+def print_dict(dict_obj):
+    for key, value in dict_obj.iteritems():
+        print key,"\t",value
+
 def main(tldr, con, educ, sk, xp):
     if tldr:
         # Brief Bio
@@ -96,7 +104,8 @@ def main(tldr, con, educ, sk, xp):
         print "I am a web application developer with strong academic background, who"\
               "is capable of implementing both frontend and backend development. I"\
               "also have R&D experiences in Digital Forensic and Bioinformatics field"
-    # elif contact:
+    elif con:
+        print_dict(contact)
 
 
 if __name__ == "__main__":
