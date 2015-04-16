@@ -44,7 +44,7 @@ tech_skill = {
     'programming languages': 'CFML, Python, C#, Bash',
     'Environments': 'Windows, Linux',
     'Database': 'MySQL, MSSQL',
-    'Web': 'HTML,CSS,Javascript',
+    'Web': 'HTML, CSS, Javascript',
     'Tools': 'Sublime Text, VIM, PyCharms, Visual Studio'
 }
 pract_skill = {
@@ -64,7 +64,7 @@ web_developer = {
     'Position': "Web Developer",
     'start': "December 2010",
     'end': "June 2010",
-    'Description': "Implementing, designing and maintaining mid-size & largescale web applications." \
+    'Description': "Implementing, designing and maintaining mid-size & largescale web applications."
                    "Design database & friendly user interface for theprojects."
 }
 Bioinformatician = {
@@ -73,16 +73,17 @@ Bioinformatician = {
     'Position': "Bioinformatics research assistant",
     'start': "February 2013",
     'end': "Current",
-    'Description': " Data analyzing, Data processing, Project development & Server administration. Implementing"\
-                   " DNA assembly pipelines and programs to achieve particular project goalsData analyzing, Data processing,"\
-                   " Project development & Server administration. Implementing DNA assembly pipelines and programs to achieve particular"\
-                   " project goals.."
+    'Description': "Data analyzing, Data processing, Project development & Server administration. Implementing"
+                   "DNA assembly pipelines and programs to achieve particular project goalsData analyzing, "
+                   "Data processing,Project development & Server administration. "
+                   "Implementing DNA assembly pipelines and programs to achieve particular project goals.."
 }
-xp = {
+experience = {
     '2008-2012': web_developer,
     '2013-Current': Bioinformatician
 }
 
+# arguments parser
 def parse_command_line():
     parser = argparse.ArgumentParser('Terminal Resume Viewer')
     parser.add_argument('-tldr', '--tldr', action='store_true', help="Too Long; Don't read version")
@@ -93,19 +94,31 @@ def parse_command_line():
     args_pass = parser.parse_args()
     return args_pass
 
+# printing stuff
 def print_dict(dict_obj):
     for key, value in dict_obj.iteritems():
-        print key,"\t",value
+        print key.upper()
+        for k2, v2 in value.iteritems():
+            print k2, "\t", v2
+        print '\n'
 
 def main(tldr, con, educ, sk, xp):
     if tldr:
         # Brief Bio
         print "My name is Aung Thu Rha Hein."
-        print "I am a web application developer with strong academic background, who"\
-              "is capable of implementing both frontend and backend development. I"\
-              "also have R&D experiences in Digital Forensic and Bioinformatics field"
+        print "I am a web application developer with strong academic background, " \
+              "who is capable of implementing both frontend and backend development. "
+        print "I also have R&D experiences in Digital Forensic and Bioinformatics field."
     elif con:
         print_dict(contact)
+    elif educ:
+        print_dict(education)
+    elif sk:
+        print_dict(skill)
+    elif xp:
+        print_dict(experience)
+    else:
+        print "adding '-h' will help you for sure."
 
 
 if __name__ == "__main__":
