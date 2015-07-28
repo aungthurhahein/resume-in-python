@@ -7,80 +7,81 @@
 # Date : 17032015
 """
 import argparse
-
 # contact
+
 contact = {
-    'name': "Aung Thu Rha Hein",
-    'email': "aungthurhahein@gmail.com",
-    'blog': "aungthurhahein@github.io",
-    'Porfolio': "aungthurhahein.me",
-    'address': "somewhere at Bangkok"
+    '1.Name\t': "Aung Thu Rha Hein",
+    '2.Email\t': "aungthurhahein@gmail.com",
+    '3.Blog\t': "aungthurhahein@github.io",
+    '4.Porfolio\t': "aungthurhahein.me",
+    '5.Address\t':"somewhere at Bangkok"
 }
 
 # Education
 ucsy = {
-    'school': "University of Computer Studies",
-    'location': "Yangon, MM",
-    'program': "BS Computer Science",
-    'start': "August 2005",
-    'end': "November 2008",
-    'description': " focus on software engineering and development courses"
+    '1.1.School\t': "University of Computer Studies",
+    '1.2.Location\t': "Yangon, MM",
+    '1.3.Program\t': "BS Computer Science",
+    '1.4.Start\t': "August 2005",
+    '1.5.End\t': "November 2008",
+    '1.6.Description\t': " focus on software engineering and software development courses"
 }
+
 mahidol = {
-    'school': "Mahidol University",
-    'location': "Bangkok, TH",
-    'program': "MS Computer Science",
-    'start': "August 2012",
-    'end': " May 2015",
-    'description': " focus on software engineering, security and research on digital forensic"
+    '2.1.School\t': "Mahidol University",
+    '2.2.Location\t': "Bangkok, TH",
+    '2.3.Program\t': "MS Computer Science",
+    '2.4.Start\t': "August 2012",
+    '2.5.End\t': " May 2015",
+    '2.6.Description\t': " focus on software engineering, security and research on digital forensic"
 }
 education = {
-    'bachelor': ucsy,
-    'master': mahidol
+    'Bachelor': ucsy,
+    'Master': mahidol
 }
 
 # Skills
 tech_skill = {
-    'programming languages': 'CFML, Python, C#, Bash',
-    'Environments': 'Windows, Linux',
-    'Database': 'MySQL, MSSQL',
-    'Web': 'HTML, CSS, Javascript',
-    'Tools': 'Sublime Text, VIM, PyCharms, Visual Studio'
+    '1.1.Programming': 'CFML, Python, C#, Bash',
+    '1.2.Environment': 'Windows, Linux',
+    '1.3.Database': 'MySQL, MSSQL',
+    '1.4.Web': 'HTML, CSS, Javascript',
+    '1.5.Tools': 'Sublime Text, VIM, PyCharms, Visual Studio'
 }
 pract_skill = {
-    'language': 'Burmese, English',
-    'Interests': 'Web Development, Security, Digital Forensic, Bioinformatics',
-
+    '2.1.Language': 'Burmese, English',
+    '2.2.Interests': 'Web Development, Security, Digital Forensic, Bioinformatics',
 }
+
 skill = {
-    'technical skills': tech_skill,
-    'practical skills': pract_skill
+    '1.Technical skills': tech_skill,
+    '2.Practical skills': pract_skill
 }
 
 # Experience
 web_developer = {
-    'company': "Inforithm Maze Co.Ltd",
-    'location': 'Yangon, MM',
-    'Position': "Web Developer",
-    'start': "December 2010",
-    'end': "June 2010",
-    'Description': "Implementing, designing and maintaining mid-size & largescale web applications."
+    '1.1.Company': "Inforithm Maze Co.Ltd",
+    '1.2.Location': 'Yangon, MM',
+    '1.3.Position': "Web Developer",
+    '1.4.Start': "December 2010",
+    '1.5.End': "June 2010",
+    '1.6.Description': "Implementing, designing and maintaining mid-size & largescale web applications."
                    "Design database & friendly user interface for theprojects."
 }
 Bioinformatician = {
-    'company': "CentexShrmip, Mahidol University",
-    'Location': "Bangkok, TH",
-    'Position': "Bioinformatics research assistant",
-    'start': "February 2013",
-    'end': "Current",
-    'Description': "Data analyzing, Data processing, Project development & Server administration. Implementing"
+    '2.1.Company': "CentexShrmip, Mahidol University",
+    '2.2.Location': "Bangkok, TH",
+    '2.3.Position': "Bioinformatics research assistant",
+    '2.4.Start': "February 2013",
+    '2.5.End': "Current",
+    '2.6.Description': "Data analyzing, Data processing, Project development & Server administration. Implementing"
                    "DNA assembly pipelines and programs to achieve particular project goalsData analyzing, "
                    "Data processing,Project development & Server administration. "
                    "Implementing DNA assembly pipelines and programs to achieve particular project goals.."
 }
 experience = {
-    '2008-2012': web_developer,
-    '2013-Current': Bioinformatician
+    '1.2008-2012': web_developer,
+    '2.2013-Current': Bioinformatician
 }
 
 # arguments parser
@@ -96,11 +97,14 @@ def parse_command_line():
 
 # printing stuff
 def print_dict(dict_obj):
-    for key, value in dict_obj.iteritems():
-        print key.upper()
-        for k2, v2 in value.iteritems():
-            print k2, "\t", v2
-        print '\n'
+
+    for key in sorted(dict_obj.iterkeys()):
+        if isinstance(dict_obj[key], dict):
+            print_dict(dict_obj[key])
+            print "#----------------------------------------------------------------#"
+        else:
+            print key, '\t', dict_obj[key]
+
 
 def main(tldr, con, educ, sk, xp):
     if tldr:
@@ -118,7 +122,7 @@ def main(tldr, con, educ, sk, xp):
     elif xp:
         print_dict(experience)
     else:
-        print "adding '-h' will help you for sure."
+        print "Try with '-h'. It will give you some thing for sure."
 
 
 if __name__ == "__main__":
